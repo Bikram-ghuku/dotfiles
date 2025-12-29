@@ -1,0 +1,96 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 10,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "custom/media"
+  ],
+
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "pulseaudio#mic",
+    "battery",
+    "clock",
+    "custom/power"
+  ],
+
+  // ======================
+  // LEFT — WORKSPACES
+  // ======================
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "default": "",
+      "active": "",
+      "urgent": ""
+    }
+  },
+
+  // ======================
+  // CENTER — MEDIA (with thumbnail)
+  // ======================
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/media.sh",
+    "return-type": "json",
+    "interval": 2,
+    "format": "{icon}  {text}",
+    "max-length": 60
+  },
+
+  // ======================
+  // RIGHT — SYSTEM
+  // ======================
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2
+  },
+
+  "temperature": {
+    "thermal-zone": 0,
+    "format": " {temperatureC}°C"
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "⚠"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": "",
+    "on-click": "pavucontrol"
+  },
+
+  "pulseaudio#mic": {
+    "format": " {volume}%",
+    "format-muted": "",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  },
+
+  "battery": {
+    "format": " {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-discharging": " {capacity}%",
+    "format-full": " {capacity}%"
+  },
+
+  "clock": {
+    "format": " {:%H:%M  %d %b}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt>{calendar}</tt>"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "~/.local/bin/powermenu"
+  }
+
+}
