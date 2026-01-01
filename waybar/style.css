@@ -30,8 +30,9 @@ window#waybar {
 #pulseaudio,
 #pulseaudio.muted,
 #battery,
+#custom-power,
 #clock {
-  padding: 0 10px;
+  padding: 0 8px;
   color: #c7c3e0;
 }
 
